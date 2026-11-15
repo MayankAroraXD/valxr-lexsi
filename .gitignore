@@ -1,0 +1,75 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Local vendor clones (use upstream GitHub instead)
+_refs/
+
+# Training / model artefacts
+runs/
+outputs/
+checkpoints/
+wandb/
+.cache/
+hf_cache/
+models/
+adapters/
+*.safetensors
+*.bin
+*.pt
+*.ckpt
+*.gguf
+*.onnx
+
+# Data scratch
+data/*.jsonl.tmp
+data/*.tmp
+*.tmp
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Local notes
+claude.txt

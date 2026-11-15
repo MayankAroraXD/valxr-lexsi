@@ -1,0 +1,352 @@
+Downloading uvloop (4.3MiB)
+Downloading hf-xet (4.1MiB)
+Downloading psycopg2-binary (4.1MiB)
+Downloading pypdfium2 (3.8MiB)
+Downloading tokenizers (3.2MiB)
+Downloading tensorboard-data-server (6.3MiB)
+Downloading sympy (6.0MiB)
+Downloading cryptography (4.5MiB)
+Downloading nvidia-cuda-nvrtc (86.0MiB)
+Downloading lxml (5.0MiB)
+Downloading openai (2.3MiB)
+Downloading sqlalchemy (4.5MiB)
+Downloading matplotlib (9.4MiB)
+Downloading kubernetes (7.2MiB)
+Downloading scipy (33.7MiB)
+Downloading nvidia-cufft (204.2MiB)
+Downloading fonttools (5.2MiB)
+Downloading litellm (39.2MiB)
+Downloading pandas (11.5MiB)
+Downloading triton (179.5MiB)
+Downloading transformers (12.7MiB)
+Downloading tensorboard (5.3MiB)
+Downloading grpcio (7.0MiB)
+Downloading botocore (15.6MiB)
+Downloading pdfminer-six (6.3MiB)
+Downloading zstandard (5.3MiB)
+Downloading numpy (16.0MiB)
+Downloading nvidia-cuda-cupti (10.2MiB)
+Downloading onnxruntime (26.5MiB)
+Downloading scikit-learn (8.7MiB)
+Downloading nvidia-nvjitlink (38.8MiB)
+Downloading chromadb (22.2MiB)
+Downloading nvidia-cublas (403.5MiB)
+Downloading cuda-bindings (8.0MiB)
+Downloading pillow (6.3MiB)
+Downloading nvidia-cusolver (191.6MiB)
+Downloading wandb (19.4MiB)
+Downloading pyarrow (52.5MiB)
+Downloading torchao (3.1MiB)
+Downloading nvidia-curand (56.8MiB)
+Downloading nvidia-cusparse (139.2MiB)
+Downloading lm-eval (8.7MiB)
+Downloading bitsandbytes (41.1MiB)
+Downloading torchvision (7.2MiB)
+Downloading gradio (29.9MiB)
+Downloading nvidia-nccl-cu13 (187.4MiB)
+Downloading nvidia-nvshmem-cu13 (57.6MiB)
+Downloading nvidia-cusparselt-cu13 (162.0MiB)
+Downloading torch (506.1MiB)
+Downloading nvidia-cudnn-cu13 (349.1MiB)
+ Downloaded tokenizers
+Downloading langchain-community (2.3MiB)
+ Downloaded torchao
+Downloading pydantic-core (2.2MiB)
+ Downloaded pypdfium2
+Downloading nvidia-cuda-runtime (2.1MiB)
+ Downloaded hf-xet
+Downloading networkx (2.0MiB)
+ Downloaded psycopg2-binary
+Downloading aiohttp (1.8MiB)
+ Downloaded uvloop
+Downloading nltk (1.6MiB)
+ Downloaded sqlalchemy
+ Downloaded cryptography
+Downloading beartype (1.5MiB)
+Downloading kiwisolver (1.4MiB)
+ Downloaded lxml
+Downloading brotli (1.4MiB)
+ Downloaded zstandard
+ Downloaded tensorboard
+Downloading pygments (1.2MiB)
+ Downloaded fonttools
+Downloading nvidia-cufile (1.2MiB)
+Downloading tiktoken (1.1MiB)
+ Downloaded pydantic-core
+Downloading agenttune (1.1MiB)
+ Downloaded sympy
+Downloading setuptools (1.0MiB)
+ Downloaded nvidia-cuda-runtime
+ Downloaded aiohttp
+ Downloaded kiwisolver
+ Downloaded nltk
+ Downloaded tensorboard-data-server
+ Downloaded beartype
+ Downloaded pdfminer-six
+ Downloaded networkx
+ Downloaded brotli
+ Downloaded pillow
+ Downloaded tiktoken
+ Downloaded nvidia-cufile
+ Downloaded pygments
+ Downloaded agenttune
+ Downloaded openai
+ Downloaded langchain-community
+ Downloaded grpcio
+ Downloaded torchvision
+ Downloaded kubernetes
+ Downloaded setuptools
+ Downloaded cuda-bindings
+ Downloaded scikit-learn
+   Building sqlitedict==2.1.0
+   Building word2number==1.1
+   Building rouge-score==0.1.2
+ Downloaded matplotlib
+ Downloaded nvidia-cuda-cupti
+      Built word2number==1.1
+      Built sqlitedict==2.1.0
+      Built rouge-score==0.1.2
+ Downloaded pandas
+ Downloaded transformers
+ Downloaded numpy
+ Downloaded botocore
+ Downloaded wandb
+ Downloaded chromadb
+ Downloaded onnxruntime
+ Downloaded gradio
+ Downloaded scipy
+ Downloaded nvidia-nvjitlink
+ Downloaded litellm
+ Downloaded bitsandbytes
+ Downloaded pyarrow
+ Downloaded nvidia-curand
+ Downloaded nvidia-nvshmem-cu13
+ Downloaded nvidia-cuda-nvrtc
+ Downloaded lm-eval
+ Downloaded nvidia-cusparse
+ Downloaded nvidia-cusparselt-cu13
+ Downloaded nvidia-nccl-cu13
+ Downloaded nvidia-cusolver
+ Downloaded triton
+ Downloaded nvidia-cufft
+ Downloaded nvidia-cudnn-cu13
+ Downloaded nvidia-cublas
+ Downloaded torch
+Installed 273 packages in 470ms
+[14:41:43] GPU: NVIDIA A100-SXM4-80GB stages: ['base', 'sft', 'sfteval', 'heal', 'dpoeval']
+Sun Nov 15 14:41:43 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:20:1D.0 Off |                    0 |
+| N/A   26C    P0             74W /  400W |       4MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Downloading bytes:           |  0.00B            [A
+Reconstructing (incomplete total...): |          |  0.00B /  0.00B            [A
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s][A
+Reconstructing (incomplete total...):   0%|          |  0.00B / 1.81MB            [A
+Reconstructing (incomplete total...):   0%|          |  0.00B / 1.82MB            [A
+Reconstructing (incomplete total...):   1%|          | 10.4kB / 1.83MB            [A
+Reconstructing (incomplete total...):   1%|▏         | 24.8kB / 1.83MB            [A
+Reconstructing (incomplete total...):   1%|▏         | 25.3kB / 1.83MB            [A
+Reconstructing (incomplete total...):   2%|▏         | 27.8kB / 1.84MB            [A
+Reconstructing (incomplete total...):   2%|▏         | 33.5kB / 1.87MB            [A
+Reconstructing (incomplete total...):   1%|          | 64.0kB / 11.8MB            [AFetching 8 files: 100%|██████████| 8/8 [00:00<00:00,  8.79it/s]
+
+Download complete: ██████████| 11.8MB            [A
+Reconstruction complete: 100%|██████████| 11.8MB / 11.8MB                         [AReconstruction complete: 100%|██████████| 11.8MB / 11.8MB            
+Download complete: ██████████| 11.8MB            
+[14:41:45] train=2000 test=24
+
+config.json:   0%|          | 0.00/1.96k [00:00<?, ?B/s][Aconfig.json: 100%|██████████| 1.96k/1.96k [00:00<00:00, 5.36MB/s]
+
+tokenizer_config.json:   0%|          | 0.00/8.17k [00:00<?, ?B/s][Atokenizer_config.json: 100%|██████████| 8.17k/8.17k [00:00<00:00, 34.4MB/s]
+
+tokenizer.json: reconstructing file:   0%|          |  0.00B / 21.4MB            [Atokenizer.json: downloading bytes:           |  0.00B            tokenizer.json: downloading bytes: ▏         |  417kB, 22.0kB/s  
+tokenizer.json: reconstructing file: 100%|██████████| 21.4MB / 21.4MB            [Atokenizer.json: downloading bytes: ██████████| 6.96MB,  668kB/s  tokenizer.json: downloading bytes: ██████████| 6.96MB,  668kB/s  
+tokenizer.json: reconstructing file: 100%|██████████| 21.4MB / 21.4MB, 2.06MB/s  
+
+special_tokens_map.json:   0%|          | 0.00/567 [00:00<?, ?B/s][Aspecial_tokens_map.json: 100%|██████████| 567/567 [00:00<00:00, 2.82MB/s]
+/root/.cache/uv/environments-v2/pipeline-3a70e505bbcbcffe/lib/python3.12/site-packages/torchao/quantization/quant_api.py:1745: SyntaxWarning: invalid escape sequence '\.'
+  * regex for parameter names, must start with `re:`, e.g. `re:language\.layers\..+\.q_proj.weight`.
+
+model.safetensors.index.json:   0%|          | 0.00/23.6k [00:00<?, ?B/s][Amodel.safetensors.index.json: 100%|██████████| 23.6k/23.6k [00:00<00:00, 55.8MB/s]
+
+Downloading bytes:           |  0.00B            [A
+Reconstructing (incomplete total...): |          |  0.00B /  0.00B            [A
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s][A
+Reconstructing (incomplete total...):   0%|          |  0.00B / 6.70GB            [A
+Reconstructing (incomplete total...):   0%|          |  0.00B / 6.70GB            [A
+Downloading bytes:           | 1.25MB,   ???B/s  [A
+Downloading bytes: ▎         |  191MB, 1.21MB/s  [A
+Reconstructing (incomplete total...):   4%|▍         |  256MB / 6.70GB            [A
+Downloading bytes: ▋         |  430MB,  110MB/s  [A
+Reconstructing (incomplete total...):   6%|▌         |  402MB / 6.70GB,  109MB/s  [A
+Downloading bytes: █▏        |  785MB,  168MB/s  [A
+Reconstructing (incomplete total...):  15%|█▌        | 1.01GB / 6.70GB,  104MB/s  [A
+Downloading bytes: █▊        | 1.25GB,  241MB/s  [A
+Downloading bytes: ██▌       | 1.76GB,  319MB/s  [A
+Reconstructing (incomplete total...):  23%|██▎       | 1.56GB / 6.70GB,  245MB/s  [A
+Downloading bytes: ███▌      | 2.41GB,  382MB/s  [A
+Reconstructing (incomplete total...):  32%|███▏      | 2.15GB / 6.70GB,  317MB/s  [A
+Fetching 2 files:  50%|█████     | 1/2 [00:07<00:07,  7.70s/it][A
+Downloading bytes: ████▊     | 3.24GB,  470MB/s  [A
+Reconstructing (incomplete total...):  50%|█████     | 3.38GB / 6.70GB,  392MB/s  [A
+Downloading bytes: ██████    | 4.09GB,  568MB/s  [A
+Reconstructing (incomplete total...):  67%|██████▋   | 4.46GB / 6.70GB,  585MB/s  [A
+Downloading bytes: ███████▋  | 5.12GB,  652MB/s  [A
+Reconstructing (incomplete total...):  83%|████████▎ | 5.53GB / 6.70GB,  715MB/s  [A
+Reconstructing (incomplete total...): 100%|██████████| 6.70GB / 6.70GB,  804MB/s  [A
+Fetching 2 files: 100%|██████████| 2/2 [00:24<00:00, 12.98s/it][AFetching 2 files: 100%|██████████| 2/2 [00:24<00:00, 12.19s/it]
+
+Downloading bytes: ██████████| 5.84GB,  758MB/s  [A
+Download complete: ██████████| 5.84GB,  758MB/s  [A
+Reconstruction complete: 100%|██████████| 6.70GB / 6.70GB,  198MB/s               [ADownload complete: ██████████| 5.84GB,  758MB/s  
+Reconstruction complete: 100%|██████████| 6.70GB / 6.70GB,  198MB/s  
+
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s][A
+Loading weights:  57%|█████▋    | 164/290 [00:01<00:00, 162.31it/s][ALoading weights: 100%|██████████| 290/290 [00:01<00:00, 180.69it/s]
+
+generation_config.json:   0%|          | 0.00/132 [00:00<?, ?B/s][Ageneration_config.json: 100%|██████████| 132/132 [00:00<00:00, 833kB/s]
+[14:42:33] gen 24/24
+[14:42:34] base {"format_valid": 1.0, "strict_format": 1.0, "decision_acc": 0.4167, "tool_acc": 0.4167, "args_exact": 0.125, "full_match": 0.125, "over_refusal": 0.5833}
+/root/.cache/uv/environments-v2/pipeline-3a70e505bbcbcffe/lib/python3.12/site-packages/transformers/training_args.py:1541: FutureWarning: `gradient_checkpointing` is deprecated and will be removed in v6. Use `activation_checkpointing` instead.
+  warnings.warn(f"`{old}` is deprecated and will be removed in v6. Use `{new}` instead.", FutureWarning)
+
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s][A
+Loading weights:   4%|▍         | 11/290 [00:01<00:25, 10.83it/s][A
+Loading weights:  40%|████      | 116/290 [00:02<00:02, 64.96it/s][A
+Loading weights:  78%|███████▊  | 227/290 [00:03<00:00, 84.65it/s][ALoading weights: 100%|██████████| 290/290 [00:03<00:00, 80.53it/s]
+/root/.cache/uv/environments-v2/pipeline-3a70e505bbcbcffe/lib/python3.12/site-packages/transformers/modeling_utils.py:3303: FutureWarning: `is_gradient_checkpointing` is deprecated and will be removed in v6. Use `is_activation_checkpointing` instead.
+  warnings.warn(
+
+Tokenizing train dataset:   0%|          | 0/2000 [00:00<?, ? examples/s][A
+Tokenizing train dataset:   6%|▋         | 129/2000 [00:01<00:15, 124.69 examples/s][A
+Tokenizing train dataset:  13%|█▎        | 260/2000 [00:02<00:14, 123.12 examples/s][A
+Tokenizing train dataset:  20%|█▉        | 393/2000 [00:03<00:12, 127.41 examples/s][A
+Tokenizing train dataset:  26%|██▋       | 526/2000 [00:04<00:12, 122.12 examples/s][A
+Tokenizing train dataset:  33%|███▎      | 656/2000 [00:05<00:10, 123.87 examples/s][A
+Tokenizing train dataset:  39%|███▉      | 786/2000 [00:06<00:09, 124.15 examples/s][A
+Tokenizing train dataset:  46%|████▌     | 918/2000 [00:07<00:08, 125.52 examples/s][A
+Tokenizing train dataset:  52%|█████▏    | 1048/2000 [00:09<00:09, 100.41 examples/s][A
+Tokenizing train dataset:  59%|█████▊    | 1172/2000 [00:10<00:07, 105.48 examples/s][A
+Tokenizing train dataset:  66%|██████▌   | 1311/2000 [00:11<00:06, 113.12 examples/s][A
+Tokenizing train dataset:  73%|███████▎  | 1455/2000 [00:12<00:04, 120.64 examples/s][A
+Tokenizing train dataset:  80%|███████▉  | 1596/2000 [00:13<00:03, 125.41 examples/s][A
+Tokenizing train dataset:  87%|████████▋ | 1735/2000 [00:14<00:02, 128.26 examples/s][A
+Tokenizing train dataset:  94%|█████████▍| 1877/2000 [00:15<00:00, 130.68 examples/s][ATokenizing train dataset: 100%|██████████| 2000/2000 [00:16<00:00, 120.25 examples/s]
+
+Building labels for train dataset:   0%|          | 0/2000 [00:00<?, ? examples/s][A
+Building labels for train dataset:  50%|█████     | 1000/2000 [00:01<00:01, 834.65 examples/s][ABuilding labels for train dataset: 100%|██████████| 2000/2000 [00:02<00:00, 942.28 examples/s]
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 6}.
+
+  0%|          | 0/7 [00:00<?, ?it/s][A
+ 14%|█▍        | 1/7 [00:05<00:32,  5.49s/it][A
+ 29%|██▊       | 2/7 [00:10<00:26,  5.37s/it][A
+ 43%|████▎     | 3/7 [00:16<00:21,  5.36s/it][A
+ 57%|█████▋    | 4/7 [00:21<00:15,  5.32s/it][A
+ 71%|███████▏  | 5/7 [00:26<00:10,  5.31s/it][A
+ 86%|████████▌ | 6/7 [00:32<00:05,  5.40s/it][A
+100%|██████████| 7/7 [00:37<00:00,  5.36s/it][A
+{'train_runtime': '37.54', 'train_samples_per_second': '2.664', 'train_steps_per_second': '0.186', 'train_loss': '1.237', 'entropy': '0.7053', 'num_tokens': '1.667e+05', 'mean_token_accuracy': '0.8169', 'epoch': '0.056'}
+                                             [A
+100%|██████████| 7/7 [00:37<00:00,  5.36s/it][A100%|██████████| 7/7 [00:37<00:00,  5.36s/it]
+[14:43:50] SFT done; first/last loss None None
+
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s][A
+Loading weights:  49%|████▊     | 141/290 [00:01<00:01, 139.75it/s][ALoading weights: 100%|██████████| 290/290 [00:01<00:00, 165.00it/s]
+
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s][A
+Writing model shards: 100%|██████████| 1/1 [00:07<00:00,  7.26s/it][AWriting model shards: 100%|██████████| 1/1 [00:07<00:00,  7.26s/it]
+
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s][A
+Loading weights:  56%|█████▌    | 163/290 [00:01<00:00, 162.64it/s][ALoading weights: 100%|██████████| 290/290 [00:01<00:00, 182.34it/s]
+[14:44:20] gen 24/24
+[14:44:20] sft {"format_valid": 1.0, "strict_format": 1.0, "decision_acc": 1.0, "tool_acc": 0.7917, "args_exact": 0.4583, "full_match": 0.4583, "over_refusal": 0.0}
+
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]
+Loading weights:  54%|█████▍    | 157/290 [00:01<00:00, 155.88it/s]Loading weights: 100%|██████████| 290/290 [00:01<00:00, 179.58it/s]
+[14:44:29] gen 24/24
+[14:44:29] heal: 14 on-policy failures / 24 probed; 39 preference rows total
+/root/.cache/uv/environments-v2/pipeline-3a70e505bbcbcffe/lib/python3.12/site-packages/transformers/training_args.py:1541: FutureWarning: `gradient_checkpointing` is deprecated and will be removed in v6. Use `activation_checkpointing` instead.
+  warnings.warn(f"`{old}` is deprecated and will be removed in v6. Use `{new}` instead.", FutureWarning)
+
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/290 [00:01<04:56,  1.02s/it]
+Loading weights:  40%|████      | 116/290 [00:02<00:02, 67.29it/s]
+Loading weights:  76%|███████▌  | 219/290 [00:03<00:00, 82.95it/s]Loading weights: 100%|██████████| 290/290 [00:03<00:00, 78.69it/s]
+/root/.cache/uv/environments-v2/pipeline-3a70e505bbcbcffe/lib/python3.12/site-packages/transformers/modeling_utils.py:3303: FutureWarning: `is_gradient_checkpointing` is deprecated and will be removed in v6. Use `is_activation_checkpointing` instead.
+  warnings.warn(
+
+Tokenizing train dataset:   0%|          | 0/39 [00:00<?, ? examples/s]Tokenizing train dataset: 100%|██████████| 39/39 [00:00<00:00, 68.07 examples/s]
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 6}.
+
+  0%|          | 0/1 [00:00<?, ?it/s]/root/.cache/uv/environments-v2/pipeline-3a70e505bbcbcffe/lib/python3.12/site-packages/transformers/modeling_utils.py:3280: FutureWarning: `gradient_checkpointing_disable` is deprecated and will be removed in v6. Use `activation_checkpointing_disable` instead.
+  warnings.warn(
+/root/.cache/uv/environments-v2/pipeline-3a70e505bbcbcffe/lib/python3.12/site-packages/transformers/modeling_utils.py:3195: FutureWarning: `gradient_checkpointing_enable` is deprecated and will be removed in v6. Use `activation_checkpointing_enable` instead.
+  warnings.warn(
+
+100%|██████████| 1/1 [00:12<00:00, 12.01s/it]
+{'train_runtime': '12.02', 'train_samples_per_second': '0.973', 'train_steps_per_second': '0.083', 'train_loss': '0.6931', 'entropy': '0.8949', 'num_tokens': '4.76e+04', 'logits/chosen': '-0.3624', 'logits/rejected': '0.05893', 'mean_token_accuracy': '0.7759', 'rewards/chosen': '0', 'rewards/rejected': '0', 'rewards/accuracies': '0', 'rewards/margins': '0', 'logps/chosen': '-35.28', 'logps/rejected': '-32', 'epoch': '0.4'}
+                                             
+100%|██████████| 1/1 [00:12<00:00, 12.01s/it]100%|██████████| 1/1 [00:12<00:00, 12.02s/it]
+[14:44:52] DPO stats {"model": "/tmp/valxr/sft_merged", "dataset_name": "unknown", "output_dir": "/tmp/valxr/dpo_adapter", "use_rollouts": false, "agentic_mode": false, "tools": [], "train_size": 39, "eval_size": 0, "final_loss": 0.6931471824645996, "total_steps": 1, "training_history": [], "metrics": {"train_runtime": 12.0197, "train_samples_per_second": 0.973, "train_steps_per_second": 0.083, "total_flos": 812843809996800.0, "train_loss": 0.6931471824645996, "entropy": 0.8948986995965242, "num_tokens": 47600.0, "logits/chosen": -0.36241183194918225, "logits/rejected": 0.05892735563119785, "mean_token_accuracy": 0.775867871940136, "rewards/chosen": 0.0, "rewards/rejected": 0.0, "rewards/accuracies": 0.0, "rewards/margins": 0.0, "logps/chosen": -35.279619336128235, "logps/rejected": -31.99925994873047, "epoch": 0.4}, "config_kwargs": {"model": "/tmp/valxr/sft_merged", "train_dataset": "Dataset({\n    features: ['prompt', 'chosen', 'rejected'],\n    num_rows: 39\n})", "beta": 0.1, "learning_rate": 5e-06, "num_train_epochs": 0.3, "per_device_train_batch_size": 2, "gradient_accumulation_steps": 8, "max_length": 2048, "bf16": true, "gradient_checkpointing": true, "logging_steps": 5, "save_strategy": "no", "report_to": [], "output_dir": "/tmp/valxr/dpo_adapter", "peft_config": {"r": 16, "lora_alpha": 32, "lora_dropout": 0.05, "task_type": "CAUSAL_LM", "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj"]}}}
+Traceback (most recent call last):
+  File "/root/.cache/uv/environments-v2/pipeline-3a70e505bbcbcffe/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 836, in hf_raise_for_status
+    response.raise_for_status()
+  File "/root/.cache/uv/environments-v2/pipeline-3a70e505bbcbcffe/lib/python3.12/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '400 Bad Request' for url 'https://huggingface.co/api/validate-yaml'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/.cache/uv/environments-v2/pipeline-3a70e505bbcbcffe/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 11783, in _validate_yaml
+    hf_raise_for_status(response)
+  File "/root/.cache/uv/environments-v2/pipeline-3a70e505bbcbcffe/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 929, in hf_raise_for_status
+    raise _format(BadRequestError, message, response) from e
+huggingface_hub.errors.BadRequestError: (Request ID: Root=1-6af9c565-2ed9c94b3cd0f3a5392bccb6;5def3695-c431-4357-971a-5a02a75c30f0)
+
+Bad request:
+"base_model.0" with value "/tmp/valxr/sft_merged" is not valid. Use a model id from https://hf.co/models.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/pipeline.py", line 341, in <module>
+    main()
+  File "/data/pipeline.py", line 333, in main
+    stage_heal(train, a, api)
+  File "/data/pipeline.py", line 273, in stage_heal
+    api.upload_folder(folder_path=str(out), repo_id=repo, commit_message="AgentTune self-heal DPO LoRA (on top of SFT merge)")
+  File "/root/.cache/uv/environments-v2/pipeline-3a70e505bbcbcffe/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 89, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/uv/environments-v2/pipeline-3a70e505bbcbcffe/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 2140, in _inner
+    return fn(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/uv/environments-v2/pipeline-3a70e505bbcbcffe/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 6056, in upload_folder
+    add_operations = self._prepare_upload_folder_additions(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/uv/environments-v2/pipeline-3a70e505bbcbcffe/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 11734, in _prepare_upload_folder_additions
+    self._validate_yaml(
+  File "/root/.cache/uv/environments-v2/pipeline-3a70e505bbcbcffe/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 11787, in _validate_yaml
+    raise ValueError(f"Invalid metadata in README.md.\n{message}") from e
+ValueError: Invalid metadata in README.md.
+- "base_model.0" with value "/tmp/valxr/sft_merged" is not valid. Use a model id from https://hf.co/models.
+Hint: If the job is still running, use `hf jobs logs -f mayankkkkkk/6af9c47e29dd05ff0368d0b9` to stream new logs until it completes.
