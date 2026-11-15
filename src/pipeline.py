@@ -214,8 +214,31 @@ def merged_sft_path(a):
     return p
 
 
+def _corrupt_args(args, rng):
+    """Copy-fidelity negative: the kinds of id-mangling a small model makes on unseen ids."""
+    bad = json.loads(json.dumps(args))
+    keys = [k for k, v in bad.items() if isinstance(v, str) and k != "reasoning"]
+    mode = rng.choice(["colon", "colon", "prefix", "extra"]) if keys else "extra"
+    if mode == "extra":
+        extra = {"window": "today", "target": "", "max_hops": 3, "relationship_types": ["can_access"]}
+        free = [k for k in extra if k not in bad]
+        if not free:
+            return None
+        k = rng.choice(free); bad[k] = extra[k]
+        return bad
+    k = rng.choice(keys); v = bad[k]
+    if mode == "prefix" and "-" in v:
+        bad[k] = v.split("-", 1)[1]
+    elif ":" in v:
+        bad[k] = v.replace(":", rng.choice(["", "_", ".", "--"]), 1)
+    else:
+        return None
+    return bad
+
+
 def stage_heal(train, a, api):
-    """AgentTune self-heal: policy failures + hard safety negatives -> DPO."""
+    """AgentTune self-heal: on-policy failures on a disjoint dev probe set + copy-fidelity and
+    hard safety negatives -> DPO."""
     from datasets import Dataset
     from agenttune.agentic import build_dataset
     from agenttune.core.backend_factory import create_agentic_trainer
@@ -225,7 +248,8 @@ def stage_heal(train, a, api):
     sft_path = merged_sft_path(a)
     model, tok = load_model(str(sft_path))
     rng = random.Random(1)
-    probe = rng.sample(train, min(a.heal_probe, len(train)))
+    pool = read_jsonl(WORK / "ds" / "data" / "dev.jsonl") if a.probe_split == "dev" else train
+    probe = rng.sample(pool, min(a.heal_probe, len(pool)))
     gens = generate_all(model, tok, probe, bs=a.gen_bs)
     del model
     torch.cuda.empty_cache()
@@ -241,6 +265,40 @@ def stage_heal(train, a, api):
                 trajectory_id=r["id"], original_failure_type="policy_failure:" + r["category"],
                 root_cause=f"expected {r['gold']['kind']} got {parse(g['output'])['kind']}",
                 prompt=msgs, chosen=chosen, rejected=[{"role": "assistant", "content": g["output"]}]))
+    # copy-fidelity negatives on the probe pool: right tool, mangled ids (dropped colon, stripped prefix, extra args)
+    n_copy = 0
+    if a.copy_negs:
+        for r in probe:
+            if r["gold"]["kind"] != "call" or rng.random() > a.copy_negs:
+                continue
+            bad = _corrupt_args(r["gold"]["arguments"], rng)
+            if not bad:
+                continue
+            n_copy += 1
+            examples.append(TrainingExample(
+                trajectory_id=r["id"] + "-copy", original_failure_type="arg_corruption:" + r["category"],
+                root_cause="argument not copied verbatim from the request",
+                prompt=to_train_messages(tok, r["messages"]),
+                chosen=[{"role": "assistant", "content": r["target"]}],
+                rejected=[{"role": "assistant", "content": format_target("call", {"name": r["gold"]["name"], "arguments": bad})}]))
+        # clarify rows: the realistic unsafe move is acting on whatever id the analyst did mention
+        import re
+        for r in probe:
+            if r["category"] != "clarify":
+                continue
+            ids = re.findall(r"\b(?:user|sa|role|agent|cred|pod|node|vm|s3|db|secret|kms|arn):[\w./:@-]+", r["user"])
+            if not ids:
+                continue
+            bad = rng.choice([{"name": "approve_containment", "arguments": {"action_id": ids[0]}},
+                              {"name": "propose_containment", "arguments": {"subject": ids[0], "isolate": ids[-1:],
+                                                                            "reasoning": "assumed from request"}}])
+            examples.append(TrainingExample(
+                trajectory_id=r["id"] + "-clar", original_failure_type="unsafe_action:clarify",
+                root_cause="acted on an entity that is not a containment action id",
+                prompt=to_train_messages(tok, r["messages"]),
+                chosen=[{"role": "assistant", "content": r["target"]}],
+                rejected=[{"role": "assistant", "content": format_target("call", bad)}]))
+    log(f"heal: {n_copy} copy-fidelity negatives")
     # hard safety negatives: what an over-eager agent would do
     aid = lambda: f"act-{rng.randint(1000, 9999)}"  # noqa: E731
     for r in train:
@@ -266,7 +324,7 @@ def stage_heal(train, a, api):
 
     trainer = create_agentic_trainer(
         "dpo", backend="trl", model=str(sft_path), train_dataset=Dataset.from_list(rows),
-        beta=0.1, learning_rate=5e-6, num_train_epochs=a.dpo_epochs, per_device_train_batch_size=max(1, a.bs // 2),
+        beta=0.1, learning_rate=a.dpo_lr, num_train_epochs=a.dpo_epochs, per_device_train_batch_size=max(1, a.bs // 2),
         gradient_accumulation_steps=8, max_length=a.max_len, bf16=True, gradient_checkpointing=True,
         logging_steps=5, save_strategy="no", report_to=[], output_dir=str(WORK / "dpo_adapter"),
         peft_config={"r": 16, "lora_alpha": 32, "lora_dropout": 0.05, "task_type": "CAUSAL_LM",
@@ -318,6 +376,9 @@ def main():
     ap.add_argument("--dpo_epochs", type=float, default=2)
     ap.add_argument("--heal_probe", type=int, default=800)
     ap.add_argument("--neg_frac", type=float, default=0.5)
+    ap.add_argument("--probe_split", default="dev", choices=["dev", "train"])
+    ap.add_argument("--copy_negs", type=float, default=0.6, help="fraction of probe call rows that get an arg-corruption negative (0=off)")
+    ap.add_argument("--dpo_lr", type=float, default=1e-5)
     ap.add_argument("--limit_test", type=int, default=0)
     a = ap.parse_args()
     a.dataset_repo = a.dataset_repo or f"{a.hub_user}/valxr-toolcall"

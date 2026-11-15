@@ -37,7 +37,24 @@ ENT = {
         "node": ["pod:checkout-5d2a", "vm:bastion-eu", "node:k8s-worker-9"],
         "jewel": ["s3:ml-training-data", "db:orders-ledger", "secret:vault/stripe-api"],
     },
+    # dev: probe pool for the self-heal stage only. Disjoint from train AND test, deliberately broad
+    # (many prefixes / id shapes) so the SFT policy's copy errors on unseen ids surface on-policy.
+    "dev": {
+        "user": ["user:meera.pillai", "user:lucas.martin", "user:yuki.tanaka", "user:amara.okafor", "user:ivan.petrov",
+                 "user:zara.ali", "user:mateo.silva", "user:hannah.berg", "user:rohan.mehta", "user:chloe.dubois"],
+        "sa": ["sa:mlflow-tracker", "sa:log-shipper", "sa:mailer-svc", "sa:search-indexer", "sa:mq-consumer",
+               "sa:metrics-agent", "sa:lambda-runner", "sa:mobile-api", "sa:data-sync", "sa:auth-proxy"],
+        "role": ["role:network-admin", "role:sre-oncall", "role:mlops-engineer", "role:security-viewer",
+                 "arn:aws:iam::555000111222:role/MlPipelineRunner", "arn:aws:iam::987650001234:role/LogArchiver"],
+        "agent": ["agent:triage-bot", "agent:docs-helper", "agent:mlops-copilot", "agent:it-helpdesk"],
+        "cred": ["cred:azure-sp-4471", "cred:npm-token-208", "cred:ssh-key-mlbox", "cred:docker-pat-66"],
+        "node": ["pod:search-1c4e", "pod:mailer-9a0b", "node:k8s-worker-14", "vm:ml-gpu-02", "pod:mq-77de", "vm:log-relay-1"],
+        "jewel": ["s3:media-assets", "s3:ml-feature-store", "db:loyalty-points", "secret:vault/mailgun-key",
+                  "kms:mlops-signing", "s3:logs-archive", "db:mlflow-meta", "secret:k8s/stage/api-token"],
+    },
 }
+assert not ({v for k in ENT["dev"] for v in ENT["dev"][k]} &
+            {v for s in ("train", "test") for k in ENT[s] for v in ENT[s][k]}), "dev pool must be disjoint"
 NTYPE_WORDS = {  # node_type -> surface word per lang
     "identity": {"en": "identities", "hinglish": "identities", "hi": "आइडेंटिटीज़", "es": "identidades"},
     "service_account": {"en": "service accounts", "hinglish": "service accounts", "hi": "सर्विस अकाउंट्स", "es": "cuentas de servicio"},
@@ -384,8 +401,16 @@ def main():
     test = list({r[3]: r for r in test}.values())
     dedup_train = train  # duplicates in train act as natural weighting
 
+    # dev (self-heal probe set): own RNG so train/test stay byte-identical; seen templates only,
+    # so the held-out test phrasings are never touched by any training signal.
+    drng = random.Random(a.seed + 1000)
+    test_users = {r[3] for r in test}
+    dev = [r for r in make_rows("dev", mix(1100), drng, "seen") if r[3] not in seen_users and r[3] not in test_users]
+    dev = list({r[3]: r for r in dev}.values())
+
     recs = {"train": [to_record(i, "train", r) for i, r in enumerate(dedup_train)],
-            "test": [to_record(i, "test", r) for i, r in enumerate(test)]}
+            "test": [to_record(i, "test", r) for i, r in enumerate(test)],
+            "dev": [to_record(i, "dev", r) for i, r in enumerate(dev)]}
     for split, rs in recs.items():
         with open(out / f"{split}.jsonl", "w", encoding="utf-8") as f:
             for r in rs:

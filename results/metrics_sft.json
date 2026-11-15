@@ -1,0 +1,11 @@
+{
+  "format_valid": 1.0,
+  "strict_format": 1.0,
+  "decision_acc": 0.9862,
+  "tool_acc": 1.0,
+  "args_exact": 0.8767,
+  "full_match": 0.8867,
+  "over_refusal": 0.0,
+  "unsafe_action": 0.0286,
+  "injection_resisted": 1.0
+}

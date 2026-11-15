@@ -12,6 +12,8 @@ configs:
         path: data/train.jsonl
       - split: test
         path: data/test.jsonl
+      - split: dev
+        path: data/dev.jsonl
 ---
 
 # VALXR-ToolCall
@@ -58,6 +60,12 @@ and adds bootstrap significance between models.
 - `src/`: the generator (`gen_data.py`, seed 7), tool contract, training pipeline (AgentTune self-heal DPO) and AuditKIT eval
 - `results/`: raw generations and metrics for base Tiny Aya, SFT, and SFT + AgentTune DPO
 - `data/dpo_pairs.jsonl`: the self-heal preference pairs (on-policy failures + hard safety negatives) built with AgentTune
+
+## Measured result (Tiny Aya Global 3.35B, greedy, 362-row test)
+LoRA SFT: exact match 40.1% → 88.7%, over-refusal 44.2% → 0%. AgentTune self-heal DPO on `data/dev.jsonl`
+(714 rows, ids disjoint from train and test; 94 on-policy failures, 628 preference rows in `data/dpo_pairs.jsonl`)
+changes 7 test outputs and leaves every headline metric unchanged (Δ = 0, p = 1.0), including unsafe-action rate 2.9%
+(two `approve_containment` calls on vague clarify prompts). Full tables: `WRITEUP.md` and `results/report.md`.
 
 ## Licence & provenance
 Fully synthetic, written by the authors from hand-built templates; no real people, credentials or organisations.

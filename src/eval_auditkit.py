@@ -95,8 +95,8 @@ def main():
         }
         print(st, json.dumps(head))
     names = list(stage_runs)
-    for i in range(1, len(names)):
-        b, c = names[0], names[i]
+    pairs = [(names[0], c) for c in names[1:]] + [(names[i - 1], names[i]) for i in range(2, len(names))]
+    for b, c in pairs:
         comp = {}
         for m in METRICS:
             try:
@@ -122,7 +122,7 @@ def main():
     lines += ["", "| template split (full_match) | " + " | ".join(names) + " |", "|---|" + "---|" * len(names)]
     for k in ("seen", "heldout"):
         lines.append(f"| {k} | " + " | ".join(f"{report['stages'][s]['heldout_vs_seen_template'][k]:.3f}" for s in names) + " |")
-    lines += ["", "| sec/sample (A10G, bs=24, greedy) | " + " | ".join(f"{report['stages'][s]['sec_per_sample']:.3f}" for s in names) + " |"]
+    lines += ["", "| sec/sample (A100 80GB, bs=24, greedy) | " + " | ".join(f"{report['stages'][s]['sec_per_sample']:.3f}" for s in names) + " |"]
     (R / "report.md").write_text("\n".join(lines), encoding="utf-8")
     print("\n".join(lines))
 

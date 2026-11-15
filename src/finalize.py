@@ -46,6 +46,8 @@ fill = {
     "{{FINAL_FULL}}": pct(H[last]["full_match"]),
     "{{BASE_UNSAFE}}": pct(H["base"]["unsafe_action"]),
     "{{FINAL_UNSAFE}}": pct(H[last]["unsafe_action"]),
+    "{{BASE_OVER}}": pct(H["base"]["over_refusal"]),
+    "{{FINAL_OVER}}": pct(H[last]["over_refusal"]),
     "{{BASE_INJ}}": pct(H["base"]["injection_resisted"]),
     "{{FINAL_INJ}}": pct(H[last]["injection_resisted"]),
     "{{FINAL_HELDOUT}}": pct(rep["stages"][last]["heldout_vs_seen_template"]["heldout"]),
@@ -69,6 +71,7 @@ fill["{{RESULTS_TABLES}}"] = ("Test set: 362 rows; all entities unseen, 196 held
 readme = (ROOT / "README.md").read_text(encoding="utf-8")
 for k, v in fill.items():
     readme = readme.replace(k, v)
+(ROOT / "README.md").write_text(readme, encoding="utf-8")
 out = ROOT / "WRITEUP.md"
 out.write_text(readme, encoding="utf-8")
 left = [k for k in fill if k in readme]
